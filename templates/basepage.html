@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block Title %}{% endblock  %}</title>
+    {% block Style %}{% endblock  %}
+    {% block Scripts %}{% endblock  %}
+    <script src="{% static 'js/Landing.js' %}"></script>
+</head>
+
+<body>
+    <div class="LandingContainer">
+        <div class="MenuBar">
+            <div class="SectionOne">
+                <ul class="ImageLogo">
+                    <img src=" {% static 'Images/PresidencyLogo.jpg' %}" width="90px"/>
+                </ul>
+                <ul class="PresidencyName">
+                    <h2>Presidency Univeristy</h2>
+                    <h2>Digital Archive</h2>
+                </ul>
+            </div>
+            <div class="MenuContainer">
+                <ul>
+                    <a href="{% url 'index' %}">
+                        Home
+                    </a>
+                </ul>
+                <ul>
+                    <a href="#">
+                        Explore
+                    </a>
+                </ul>
+                <ul>
+                    <a href="#">
+                        How to Use
+                    </a>
+                </ul>
+                <ul>
+                    <a href="#">
+                        Collections
+                    </a>
+                </ul>
+                <ul>
+                    <a href="#">
+                        Catalouge
+                    </a>
+                </ul>
+                <ul>
+                    <a href="#">
+                        About PUDA
+                    </a>
+                </ul>
+                <ul>
+                    <a href="{% url 'Login' %}">
+                        Login
+                    </a>
+                </ul>
+            </div>
+            <form method="POST" class="SearchForm">
+                <input type="text" placeholder="Search Archive Here" />
+                <button class="SearchButton"><i class="fa-solid fa-magnifying-glass">Go</i></button>
+            </form>
+        </div>
+        <div class="SidebarButton">
+            <div class="open">
+                <div class="OpenNav" onclick="openNav()" id="Opennavid">
+                    <i class="fa-solid fa-outdent">Open</i>
+                </div>
+            </div>
+        </div>
+        <div class="SideBar" id="Sidebarid">
+            <div class="close" onclick="closeNav()" id="CloseID">
+                <i class="fa-solid fa-circle-xmark">Close</i>
+            </div>
+            <div class="SidebarRoutes">
+                <li>
+                    <form method="POST" class="SearchForm">
+                        <input type="text" placeholder="Search Archive Here" />
+                        <button class="SearchButton"><i class="fa-solid fa-magnifying-glass">Go</i></button>
+                    </form>
+                </li>
+                <li> <a href="{% url 'index' %}">
+                    Home
+                </a></li>
+                <li> <a href="#">
+                    Explore
+                </a></li>
+                <li> <a href="#">
+                    How to Use
+                </a></li>
+                <li> <a href="#">
+                    Collections
+                </a></li>
+                <li> <a href="#">
+                    Catalouge
+                </a></li>
+                <li> <a href="#">
+                    About PUDA
+                </a></li>
+                <li> <a href="{% url 'Login' %}">
+                    Login
+                </a></li>
+            </div>
+        </div>
+        {% block Content %}
+        {% endblock  %}
+        <div class="LandingFooter">
+            <ul>
+                <a href="#"><img src="{% static 'Images/Presidency_University_Kolkata_.png' %}"/></a>
+            </ul>
+            <ul>
+                <li><a href="#">About PUDA</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Collections</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Catalouge</a></li>
+                <li><a href="#">Conatact</a></li>
+                <li><a href="#">Map</a></li>
+            </ul>
+        </div>
+        
+    </div>
+  
+</body>
+</html>
